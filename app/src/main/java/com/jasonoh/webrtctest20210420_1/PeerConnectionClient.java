@@ -826,6 +826,7 @@ public class PeerConnectionClient {
         if (queuedRemoteCandidates != null) {
           queuedRemoteCandidates.add(candidate);
         } else {
+          // TODO: 2021-04-21 이부분 추가 됨 (AddIceObserver()를 사용하지 않고!!
           peerConnection.addIceCandidate(candidate);
 //          peerConnection.addIceCandidate(candidate, new AddIceObserver() {
 //            @Override
@@ -1159,6 +1160,7 @@ public class PeerConnectionClient {
     if (queuedRemoteCandidates != null) {
       Log.d(TAG, "Add " + queuedRemoteCandidates.size() + " remote candidates");
       for (IceCandidate candidate : queuedRemoteCandidates) {
+        // TODO: 2021-04-21 이부분 추가 됨 (AddIceObserver()를 사용하지 않고!!
         peerConnection.addIceCandidate(candidate);
 //        peerConnection.addIceCandidate(candidate, new AddIceObserver() {
 //          @Override
